@@ -36,6 +36,10 @@ class ErrorHandler {
     $this->handle('not found this page');
   }
 
+  public function notFoundUrlName($name){
+    $this->handle('not found url with name : ' . $name);
+  }
+
 
   public function notAllowMethod($url){
     $this->handle("not allowed method for route : $url ");

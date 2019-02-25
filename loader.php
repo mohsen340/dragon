@@ -1,7 +1,8 @@
 <?php
 
 global $root_path;
-require_once($root_path . '/core/config/config.php');
+require_once($root_path . '/Config.php');
+require_once($root_path . '/core/config/cons.php');
 require_once($root_path . '/core/helper/text.php');
 require_once($root_path . '/core/helper/server.php');
 require_once($root_path . '/core/error/ErrorHandler.php');
