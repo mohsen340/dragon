@@ -16,6 +16,7 @@ class Request {
   private $request_method;
   private $request_uri;
   private $request_time;
+  private $server_uri;
   private $full_uri;
 
   private $headers = array();
@@ -61,13 +62,27 @@ class Request {
     $this->server_protocol_name =  explode('/', $this->server_protocol)[0];
 //    $this->request_uri = $_SERVER['REQUEST_URI'];
     $this->request_uri = strtok($_SERVER['REQUEST_URI'], '?');
+    if(isset($_SERVER['CONTEXT_PREFIX'])){
+      $this->request_uri = str_replace($_SERVER['CONTEXT_PREFIX'], '', $this->request_uri);
+    }
     $this->request_method = $_SERVER['REQUEST_METHOD'];
     $this->request_time = $_SERVER['REQUEST_TIME'];
+    $this->server_uri = mb_strtolower($this->server_protocol_name) . '://' . $this->host;
+    if (isset($_SERVER['CONTEXT_PREFIX'])){
+      $this->server_uri .= $_SERVER['CONTEXT_PREFIX'];
+    }
     $this->full_uri = mb_strtolower($this->server_protocol_name) . '://' . $this->host . $this->request_uri;
 
 
 
 
+  }
+
+  /**
+   * @return string
+   */
+  public function getServerUri(): string {
+    return $this->server_uri;
   }
 
 
@@ -158,6 +173,10 @@ class Request {
 
   function getFullUrl(){
     return $this->full_uri;
+  }
+
+  public function getAllHeaders(){
+    return $this->headers;
   }
 
 

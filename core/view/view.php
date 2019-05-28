@@ -38,6 +38,7 @@ function view($file_path, $params = null){
 
 
 function asset($path){
-  if($path[0] === '/') echo '/public' . $path;
-  else echo '/public/' . $path;
+  $request = Request::getInstance();
+  $uri = $request->getServerUri();
+  echo ($path[0] === '/') ? $uri . '/public' . $path : $uri . '/public/' . $path;
 }

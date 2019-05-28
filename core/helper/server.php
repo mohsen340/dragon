@@ -41,6 +41,9 @@ function route($name, $params = array()){
 
 function redirect($url){
 //  http_redirect($url);
+  if (isset($_SERVER['CONTEXT_PREFIX'])){
+    $url = $_SERVER['CONTEXT_PREFIX'] . $url;
+  }
   header('Location: ' . $url);
 }
 

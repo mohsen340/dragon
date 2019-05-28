@@ -29,6 +29,8 @@ require_once($root_path . '/route/web.php');
 $request = Request::getInstance();
 
 $handler = new RouteHandler($request->getRequestMethod());
+//print_r($_SERVER);
+//die($request->getServerUri());
 $route_result = $handler->match($request->getRequestUrl());
 
 

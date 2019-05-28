@@ -2,10 +2,11 @@
 
 
 function con($key, $default = null){
-  if(!array_key_exists($key, getConfigs())){
+  $configs = getConfigs();
+  if(!array_key_exists($key,$configs)){
     return $default;
   }else{
-    $conf = getConfigs()[$key];
+    $conf = $configs[$key];
     return $conf;
   }
 }

@@ -12,10 +12,10 @@ class ErrorHandler {
 
   private function handle($message){
     if($this->debug_mode == 'true'){
-      echo $message;
+      echo '<span style="color: red;background: rgba(64,59,60,0.07)">'.$message.'</span>';
       exit;
     }else{
-      echo $message;
+      echo '<span style="color: red;background: rgba(64,59,60,0.07)">' .$message.'</span>';
       exit;
     }
 

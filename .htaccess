@@ -2,6 +2,7 @@ Options -MultiViews -Indexes
 
 
 RewriteEngine On
+RewriteBase '/dragon/'
 
 RewriteRule ^conf.drg - [F,L,NC]
 #RewriteRule ^(.*)$ public/$1 [L]

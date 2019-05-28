@@ -76,7 +76,7 @@ class DB  {
 
 
   public static function delete($query, $fields = null){
-    $stmt = self::run($query, $fields = null);
+    $stmt = self::run($query, $fields);
     return $stmt;
   }
 
