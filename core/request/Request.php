@@ -65,6 +65,9 @@ class Request {
     if(isset($_SERVER['CONTEXT_PREFIX'])){
       $this->request_uri = str_replace($_SERVER['CONTEXT_PREFIX'], '', $this->request_uri);
     }
+    if ($this->request_uri[0] !== '/'){
+      $this->request_uri = '/'.$this->request_uri;
+    }
     $this->request_method = $_SERVER['REQUEST_METHOD'];
     $this->request_time = $_SERVER['REQUEST_TIME'];
     $this->server_uri = mb_strtolower($this->server_protocol_name) . '://' . $this->host;
